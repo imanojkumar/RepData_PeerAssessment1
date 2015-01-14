@@ -1,12 +1,24 @@
----
-title: "Reproducible Research: Peer Assessment 1 - Manoj Kumar"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1 - Manoj Kumar
 
-```{r, echo = TRUE}
+
+```r
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 library(ggplot2)
 library(scales)
 
@@ -56,21 +68,66 @@ myfile0 <- myfile
 
 # Although not a part of this assignment, let us have a look into the data we have just prepared
 head(myfile)
+```
 
+```
+##   steps       date interval
+## 1    NA 2012-10-01        0
+## 2    NA 2012-10-01        5
+## 3    NA 2012-10-01       10
+## 4    NA 2012-10-01       15
+## 5    NA 2012-10-01       20
+## 6    NA 2012-10-01       25
+```
+
+```r
 # Structure of the dataset
 str(myfile)
+```
 
+```
+## 'data.frame':	17568 obs. of  3 variables:
+##  $ steps   : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ date    : Date, format: "2012-10-01" "2012-10-01" ...
+##  $ interval: Factor w/ 288 levels "0","5","10","15",..: 1 2 3 4 5 6 7 8 9 10 ...
+```
+
+```r
 # Class of the dataset
 class(myfile)
+```
 
+```
+## [1] "data.frame"
+```
+
+```r
 # Summarize the data
 # and we see that there are 2304 NAs under variable name "steps", and assignment guidelines also talk about it.
 summary(myfile)
+```
 
+```
+##      steps             date               interval    
+##  Min.   :  0.00   Min.   :2012-10-01   0      :   61  
+##  1st Qu.:  0.00   1st Qu.:2012-10-16   5      :   61  
+##  Median :  0.00   Median :2012-10-31   10     :   61  
+##  Mean   : 37.38   Mean   :2012-10-31   15     :   61  
+##  3rd Qu.: 12.00   3rd Qu.:2012-11-15   20     :   61  
+##  Max.   :806.00   Max.   :2012-11-30   25     :   61  
+##  NA's   :2304                          (Other):17202
+```
 
+```r
 myNAfile <- myfile[!complete.cases(myfile), ]
 paste("Total NAs under variable steps are : ", nrow(myNAfile), sep = " ")
+```
 
+```
+## [1] "Total NAs under variable steps are :  2304"
+```
+
+```r
 ############ END OF QUESTION 1 ############
 #
 #
@@ -109,8 +166,11 @@ spd <- cspd(myfile)
 mns = round(mean(spd$steps), 2)
 mds = round(median(spd$steps), 2)
 pspd(spd, mns, mds)
+```
 
+![](PA1_template_files/figure-html/unnamed-chunk-1-1.png) 
 
+```r
 # Part 2: Reporting Mean
 #paste("Mean total number of steps taken per day: ", round(mean_steps, 0), sep = " ")
 
@@ -158,10 +218,19 @@ spi <- cspi(myfile)
 msi <- spi[which.max(spi$steps),]$interval
 
 pap(spi, msi)
+```
 
+![](PA1_template_files/figure-html/unnamed-chunk-1-2.png) 
+
+```r
 paste("Interval with Maximum Activity : ", msi, sep = " ")
+```
 
+```
+## [1] "Interval with Maximum Activity :  835"
+```
 
+```r
 ############ END OF QUESTION 3 ############
 #
 #
@@ -215,7 +284,20 @@ comt <- data.frame(
 
 
 summary(comt)
+```
 
+```
+##      steps             date               interval    
+##  Min.   :  0.00   Min.   :2012-10-01   0      :   61  
+##  1st Qu.:  0.00   1st Qu.:2012-10-16   5      :   61  
+##  Median :  0.00   Median :2012-10-31   10     :   61  
+##  Mean   : 37.38   Mean   :2012-10-31   15     :   61  
+##  3rd Qu.: 27.00   3rd Qu.:2012-11-15   20     :   61  
+##  Max.   :806.00   Max.   :2012-11-30   25     :   61  
+##                                        (Other):17202
+```
+
+```r
 ctspd <- cspd(comt)
 
 cms = round(mean(ctspd$steps), 2)
@@ -223,7 +305,11 @@ cms = round(mean(ctspd$steps), 2)
 cmds = round(median(ctspd$steps), 2)
 
 pspd(ctspd, cms, cmds)
+```
 
+![](PA1_template_files/figure-html/unnamed-chunk-1-3.png) 
+
+```r
 ############ END OF QUESTION 4 ############
 #
 #
@@ -270,7 +356,10 @@ pdwc <- function(dowd) {
 
 dofwd <- cdwd(comt)
 pdwc(dofwd)
+```
 
+![](PA1_template_files/figure-html/unnamed-chunk-1-4.png) 
+
+```r
 ############ END OF QUESTION 5 ############
-
 ```
