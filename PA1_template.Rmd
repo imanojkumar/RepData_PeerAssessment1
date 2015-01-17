@@ -112,10 +112,10 @@ pspd(spd, mns, mds)
 
 
 # Part 2: Reporting Mean
-#paste("Mean total number of steps taken per day: ", round(mean_steps, 0), sep = " ")
+paste("Mean total number of steps taken per day: ", round(mns, 0), sep = " ")
 
 # And Median
-#paste("Median total number of steps taken per day: ", round(median_steps, 0), sep = " ")
+paste("Median total number of steps taken per day: ", round(mds, 0), sep = " ")
 
 ############ END OF QUESTION 2 ############
 #
@@ -271,6 +271,17 @@ pdwc <- function(dowd) {
 dofwd <- cdwd(comt)
 pdwc(dofwd)
 
+
+# As compare to weekends, the activity on the week days are widely spread. 
+
+# The obvious reason for that is on weekdays there are much more routine movements (due to work etc.) while most people take rest / stay at home on weekends.
+
+
 ############ END OF QUESTION 5 ############
+
+###  This concluded the assignment as well ###
+
+
+#
 
 ```

@@ -172,11 +172,23 @@ pspd(spd, mns, mds)
 
 ```r
 # Part 2: Reporting Mean
-#paste("Mean total number of steps taken per day: ", round(mean_steps, 0), sep = " ")
+paste("Mean total number of steps taken per day: ", round(mns, 0), sep = " ")
+```
 
+```
+## [1] "Mean total number of steps taken per day:  10766"
+```
+
+```r
 # And Median
-#paste("Median total number of steps taken per day: ", round(median_steps, 0), sep = " ")
+paste("Median total number of steps taken per day: ", round(mds, 0), sep = " ")
+```
 
+```
+## [1] "Median total number of steps taken per day:  10765"
+```
+
+```r
 ############ END OF QUESTION 2 ############
 #
 #
@@ -361,5 +373,15 @@ pdwc(dofwd)
 ![](PA1_template_files/figure-html/unnamed-chunk-1-4.png) 
 
 ```r
+# As compare to weekends, the activity on the week days are widely spread. 
+
+# The obvious reason for that is on weekdays there are much more routine movements (due to work etc.) while most people take rest / stay at home on weekends.
+
+
 ############ END OF QUESTION 5 ############
+
+###  This concluded the assignment as well ###
+
+
+#
 ```
